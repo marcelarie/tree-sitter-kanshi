@@ -9,5 +9,12 @@ profile home_office {
 }
 
 profile laptop_only {
-    output "e:set runtimepath?DP-1" mode 3840x2160@60.01 position 2280,1498 scale 2.4
+    output "DP-1" mode 3840x2160@60.01 position 2280,1498 scale 2.4
+}
+
+# TODO: Fix this cases
+profile {
+	output "LVDS-1" disable
+	output "LVDS-1" enable scale 2
+	output "Some Company ASDF 4242" mode 1600x900 position 0,0
 }

@@ -18,7 +18,7 @@ module.exports = grammar({
     profile: ($) =>
       seq(
         "profile",
-        $.identifier,
+        optional($.identifier),
         "{",
         repeat(choice($.output, $.comment)),
         "}",
@@ -34,6 +34,7 @@ module.exports = grammar({
             optional(field("position", $.position)),
             optional(field("scale", $.scale)),
           ),
+          "enable",
           "disable",
         ),
       ),
@@ -58,8 +59,15 @@ module.exports = grammar({
         field("value", alias(/\d+(\.\d+)?/, $.string)),
       ),
 
+    enable: ($) => "enable",
+    disable: ($) => "disable",
+
     identifier: ($) => /[a-zA-Z_][a-zA-Z0-9_]*/,
 
-    string: ($) => seq('"', /[^"]*/, '"'),
+    string: ($) =>
+      choice(
+        seq('"', /[^"]*/, '"'), // Double-quoted string
+        seq("'", /[^']*/, "'"), // Single-quoted string
+      ),
   },
 });

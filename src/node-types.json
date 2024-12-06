@@ -103,7 +103,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "comment",
@@ -172,11 +172,19 @@
     "named": false
   },
   {
+    "type": "'",
+    "named": false
+  },
+  {
     "type": "comment",
     "named": true
   },
   {
     "type": "disable",
+    "named": false
+  },
+  {
+    "type": "enable",
     "named": false
   },
   {
