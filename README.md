@@ -1,11 +1,9 @@
-# Tree-sitter grammar for kanshi configs
+# Tree-sitter grammar for kanshi configs [WIP]
 
 Kanshi allows you to define your monitor setup in a declarative way. This
 repository provides a tree-sitter grammar for the configuration files.
 
 Link to Kanshi repository: [sr.ht/~emersion/kanshi](https://sr.ht/~emersion/kanshi/)
-
-[WIP]
 
 ## Goals
 
