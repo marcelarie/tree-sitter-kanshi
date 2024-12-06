@@ -18,8 +18,8 @@ Link to Kanshi repository:
 
 - for _neovim_ users, please have a look at
   [`installation/neovim.md`](installation/neovim.md)
-- for _helix_ users, please have a look at
-  [`installation/helix.md`](installation/helix.md)
+<!--- for _helix_ users, please have a look at-->
+<!--  [`installation/helix.md`](installation/helix.md)-->
 
 ### Syntax highlighting
 
