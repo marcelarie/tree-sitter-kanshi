@@ -6,10 +6,6 @@ repository provides a tree-sitter grammar for the configuration files.
 Link to Kanshi repository:
 [sr.ht/~emersion/kanshi](https://sr.ht/~emersion/kanshi/)
 
-### Syntax highlighting
-![satty-20241206-17:22:00](https://github.com/user-attachments/assets/45fa8a60-21f4-47df-9c4b-47c1581056ef)
-
-
 ### Goals
 
 - Parse Kanshi configs with Tree-sitter.
@@ -24,3 +20,7 @@ Link to Kanshi repository:
   [`installation/neovim.md`](installation/neovim.md)
 - for _helix_ users, please have a look at
   [`installation/helix.md`](installation/helix.md)
+
+### Syntax highlighting
+
+![satty-20241206-17:22:00](https://github.com/user-attachments/assets/45fa8a60-21f4-47df-9c4b-47c1581056ef)
