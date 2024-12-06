@@ -8,7 +8,13 @@
 ; Highlight comments
 (comment) @comment
 
-; Highlight mode, position, scale keywords
-(mode) @keyword
-(position) @keyword
-(scale) @keyword
+; Highlight keywords (e.g., "mode", "position", "scale")
+(mode (keyword) @keyword)
+(position (keyword) @keyword)
+(scale (keyword) @keyword)
+
+; Highlight values (e.g., numbers and coordinates)
+(mode (value) @number)
+(position (value) @number)
+(scale (value) @float)
+

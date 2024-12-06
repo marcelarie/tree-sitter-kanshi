@@ -11,9 +11,9 @@
 #define ALIAS_COUNT 0
 #define TOKEN_COUNT 16
 #define EXTERNAL_TOKEN_COUNT 0
-#define FIELD_COUNT 4
+#define FIELD_COUNT 6
 #define MAX_ALIAS_SEQUENCE_LENGTH 5
-#define PRODUCTION_ID_COUNT 9
+#define PRODUCTION_ID_COUNT 10
 
 enum ts_symbol_identifiers {
   anon_sym_profile = 1,
@@ -51,11 +51,11 @@ static const char * const ts_symbol_names[] = {
   [anon_sym_disable] = "disable",
   [sym_comment] = "comment",
   [anon_sym_mode] = "mode",
-  [aux_sym_mode_token1] = "mode_token1",
+  [aux_sym_mode_token1] = "string",
   [anon_sym_position] = "position",
-  [aux_sym_position_token1] = "position_token1",
+  [aux_sym_position_token1] = "string",
   [anon_sym_scale] = "scale",
-  [aux_sym_scale_token1] = "scale_token1",
+  [aux_sym_scale_token1] = "string",
   [sym_identifier] = "identifier",
   [anon_sym_DQUOTE] = "\"",
   [aux_sym_string_token1] = "string_token1",
@@ -79,11 +79,11 @@ static const TSSymbol ts_symbol_map[] = {
   [anon_sym_disable] = anon_sym_disable,
   [sym_comment] = sym_comment,
   [anon_sym_mode] = anon_sym_mode,
-  [aux_sym_mode_token1] = aux_sym_mode_token1,
+  [aux_sym_mode_token1] = sym_string,
   [anon_sym_position] = anon_sym_position,
-  [aux_sym_position_token1] = aux_sym_position_token1,
+  [aux_sym_position_token1] = sym_string,
   [anon_sym_scale] = anon_sym_scale,
-  [aux_sym_scale_token1] = aux_sym_scale_token1,
+  [aux_sym_scale_token1] = sym_string,
   [sym_identifier] = sym_identifier,
   [anon_sym_DQUOTE] = anon_sym_DQUOTE,
   [aux_sym_string_token1] = aux_sym_string_token1,
@@ -132,24 +132,24 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .named = false,
   },
   [aux_sym_mode_token1] = {
-    .visible = false,
-    .named = false,
+    .visible = true,
+    .named = true,
   },
   [anon_sym_position] = {
     .visible = true,
     .named = false,
   },
   [aux_sym_position_token1] = {
-    .visible = false,
-    .named = false,
+    .visible = true,
+    .named = true,
   },
   [anon_sym_scale] = {
     .visible = true,
     .named = false,
   },
   [aux_sym_scale_token1] = {
-    .visible = false,
-    .named = false,
+    .visible = true,
+    .named = true,
   },
   [sym_identifier] = {
     .visible = true,
@@ -202,18 +202,22 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
 };
 
 enum ts_field_identifiers {
-  field_mode = 1,
-  field_name = 2,
-  field_position = 3,
-  field_scale = 4,
+  field_keyword = 1,
+  field_mode = 2,
+  field_name = 3,
+  field_position = 4,
+  field_scale = 5,
+  field_value = 6,
 };
 
 static const char * const ts_field_names[] = {
   [0] = NULL,
+  [field_keyword] = "keyword",
   [field_mode] = "mode",
   [field_name] = "name",
   [field_position] = "position",
   [field_scale] = "scale",
+  [field_value] = "value",
 };
 
 static const TSFieldMapSlice ts_field_map_slices[PRODUCTION_ID_COUNT] = {
@@ -221,10 +225,11 @@ static const TSFieldMapSlice ts_field_map_slices[PRODUCTION_ID_COUNT] = {
   [2] = {.index = 1, .length = 2},
   [3] = {.index = 3, .length = 2},
   [4] = {.index = 5, .length = 2},
-  [5] = {.index = 7, .length = 3},
-  [6] = {.index = 10, .length = 3},
-  [7] = {.index = 13, .length = 3},
-  [8] = {.index = 16, .length = 4},
+  [5] = {.index = 7, .length = 2},
+  [6] = {.index = 9, .length = 3},
+  [7] = {.index = 12, .length = 3},
+  [8] = {.index = 15, .length = 3},
+  [9] = {.index = 18, .length = 4},
 };
 
 static const TSFieldMapEntry ts_field_map_entries[] = {
@@ -240,18 +245,21 @@ static const TSFieldMapEntry ts_field_map_entries[] = {
     {field_name, 1},
     {field_scale, 2},
   [7] =
+    {field_keyword, 0},
+    {field_value, 1},
+  [9] =
     {field_mode, 2},
     {field_name, 1},
     {field_position, 3},
-  [10] =
+  [12] =
     {field_mode, 2},
     {field_name, 1},
     {field_scale, 3},
-  [13] =
+  [15] =
     {field_name, 1},
     {field_position, 2},
     {field_scale, 3},
-  [16] =
+  [18] =
     {field_mode, 2},
     {field_name, 1},
     {field_position, 3},
@@ -886,19 +894,19 @@ static const TSParseActionEntry ts_parse_actions[] = {
   [40] = {.entry = {.count = 1, .reusable = true}}, REDUCE(aux_sym_profile_repeat1, 2, 0, 0),
   [42] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym_profile_repeat1, 2, 0, 0), SHIFT_REPEAT(15),
   [45] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym_profile_repeat1, 2, 0, 0), SHIFT_REPEAT(9),
-  [48] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_mode, 2, 0, 0),
+  [48] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_mode, 2, 0, 5),
   [50] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_output, 3, 0, 3),
-  [52] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_output, 4, 0, 5),
-  [54] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_position, 2, 0, 0),
+  [52] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_output, 4, 0, 6),
+  [54] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_position, 2, 0, 5),
   [56] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_profile, 4, 0, 0),
   [58] = {.entry = {.count = 1, .reusable = true}}, SHIFT(26),
   [60] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_profile, 5, 0, 0),
   [62] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_output, 3, 0, 4),
-  [64] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_scale, 2, 0, 0),
+  [64] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_scale, 2, 0, 5),
   [66] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_output, 3, 0, 1),
-  [68] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_output, 4, 0, 6),
-  [70] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_output, 4, 0, 7),
-  [72] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_output, 5, 0, 8),
+  [68] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_output, 4, 0, 7),
+  [70] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_output, 4, 0, 8),
+  [72] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_output, 5, 0, 9),
   [74] = {.entry = {.count = 1, .reusable = true}}, SHIFT(5),
   [76] = {.entry = {.count = 1, .reusable = true}}, SHIFT(23),
   [78] = {.entry = {.count = 1, .reusable = true}},  ACCEPT_INPUT(),

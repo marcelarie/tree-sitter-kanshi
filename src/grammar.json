@@ -145,12 +145,25 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "mode"
+          "type": "FIELD",
+          "name": "keyword",
+          "content": {
+            "type": "STRING",
+            "value": "mode"
+          }
         },
         {
-          "type": "PATTERN",
-          "value": "\\d+x\\d+@\\d+(\\.\\d+)?(Hz)?"
+          "type": "FIELD",
+          "name": "value",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "PATTERN",
+              "value": "\\d+x\\d+@\\d+(\\.\\d+)?(Hz)?"
+            },
+            "named": true,
+            "value": "string"
+          }
         }
       ]
     },
@@ -158,12 +171,25 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "position"
+          "type": "FIELD",
+          "name": "keyword",
+          "content": {
+            "type": "STRING",
+            "value": "position"
+          }
         },
         {
-          "type": "PATTERN",
-          "value": "\\d+,\\d+"
+          "type": "FIELD",
+          "name": "value",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "PATTERN",
+              "value": "\\d+,\\d+"
+            },
+            "named": true,
+            "value": "string"
+          }
         }
       ]
     },
@@ -171,12 +197,25 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "scale"
+          "type": "FIELD",
+          "name": "keyword",
+          "content": {
+            "type": "STRING",
+            "value": "scale"
+          }
         },
         {
-          "type": "PATTERN",
-          "value": "[0-9]+(\\.[0-9]+)?"
+          "type": "FIELD",
+          "name": "value",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "PATTERN",
+              "value": "\\d+(\\.\\d+)?"
+            },
+            "named": true,
+            "value": "string"
+          }
         }
       ]
     },

@@ -40,11 +40,23 @@ module.exports = grammar({
 
     comment: ($) => token(seq("#", /[^\n]*/)),
 
-    mode: ($) => seq("mode", /\d+x\d+@\d+(\.\d+)?(Hz)?/),
+    mode: ($) =>
+      seq(
+        field("keyword", "mode"),
+        field("value", alias(/\d+x\d+@\d+(\.\d+)?(Hz)?/, $.string)),
+      ),
 
-    position: ($) => seq("position", /\d+,\d+/),
+    position: ($) =>
+      seq(
+        field("keyword", "position"),
+        field("value", alias(/\d+,\d+/, $.string)),
+      ),
 
-    scale: ($) => seq("scale", /[0-9]+(\.[0-9]+)?/),
+    scale: ($) =>
+      seq(
+        field("keyword", "scale"),
+        field("value", alias(/\d+(\.\d+)?/, $.string)),
+      ),
 
     identifier: ($) => /[a-zA-Z_][a-zA-Z0-9_]*/,
 
