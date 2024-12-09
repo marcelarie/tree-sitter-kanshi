@@ -12,17 +12,17 @@
 ;; Keywords: top-level constructs and configuration keywords
 ((profile) @keyword)
 ((output) @keyword)
-((mode (keyword)) @keyword)
-((position (keyword)) @keyword)
-((scale (keyword)) @keyword)
+((mode) @keyword)
+((position) @keyword)
+((scale ) @keyword)
 
-((enable) @keyword)
-((disable) @keyword)
+; ((enable) @keyword)
+; ((disable) @keyword)
 
 ;; Numbers inside mode, position, and scale values
-((mode (value)) @number)
-((position (value)) @number)
-((scale (value)) @number)
+; ((mode (value)) @number)
+; ((position (value)) @number)
+; ((scale (value)) @number)
 
 ;; For output name highlight it as a variable or constant
 (output name: (string) @constant)
