@@ -1,14 +1,17 @@
-; Highlight profile name
-(profile
-  (identifier) @function)
+;; Highlights for kanshi grammar
 
-; Highlight strings
-(string) @string
+;; Comments
+((comment) @comment)
 
-; Highlight comments
-(comment) @comment
+;; Strings
+((string) @string)
 
-;; Keywords for configuration options
+;; Identifiers
+((identifier) @variable)
+
+;; Keywords: top-level constructs and configuration keywords
+((profile) @keyword)
+((output) @keyword)
 ((mode (keyword)) @keyword)
 ((position (keyword)) @keyword)
 ((scale (keyword)) @keyword)
@@ -16,9 +19,20 @@
 ((enable) @keyword)
 ((disable) @keyword)
 
-;; Values for mode, position, and scale are typically numeric/dimensional
+;; Numbers inside mode, position, and scale values
 ((mode (value)) @number)
 ((position (value)) @number)
 ((scale (value)) @number)
 
+;; For output name highlight it as a variable or constant
+(output name: (string) @constant)
+
+;; Punctuation (braces, quotes)
+[
+  "{" "}"
+] @punctuation.bracket
+
+[
+  "\"" "'" 
+] @punctuation.delimiter
 

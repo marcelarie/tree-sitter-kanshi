@@ -39,7 +39,7 @@ module.exports = grammar({
         ),
       ),
 
-    comment: (_$) => token(seq("#", /[^\n]*/)),
+    comment: ($) => token(seq("#", /[^\n]*/)),
 
     mode: ($) =>
       seq(
@@ -59,12 +59,12 @@ module.exports = grammar({
         field("value", alias(/\d+(\.\d+)?/, $.string)),
       ),
 
-    enable: (_$) => "enable",
-    disable: (_$) => "disable",
+    enable: ($) => "enable",
+    disable: ($) => "disable",
 
-    identifier: (_$) => /[a-zA-Z_][a-zA-Z0-9_]*/,
+    identifier: ($) => /[a-zA-Z_][a-zA-Z0-9_]*/,
 
-    string: (_$) =>
+    string: ($) =>
       choice(
         seq('"', /[^"]*/, '"'), // Double-quoted string
         seq("'", /[^']*/, "'"), // Single-quoted string
