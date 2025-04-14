@@ -23,4 +23,4 @@ Link to Kanshi repository:
 
 ### Syntax highlighting
 
-![satty-20241206-17:22:00](https://github.com/user-attachments/assets/45fa8a60-21f4-47df-9c4b-47c1581056ef)
+![grim-20250414-10:17:08](https://github.com/user-attachments/assets/dc2ab7d5-a4e7-432e-b27f-d328b898f978)
